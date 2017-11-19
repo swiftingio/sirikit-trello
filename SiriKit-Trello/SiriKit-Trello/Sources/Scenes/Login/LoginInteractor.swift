@@ -7,12 +7,27 @@
 //
 
 import Foundation
+import OAuthSwift
 
 final class LoginInteractor: LoginInteractorProtocol {
     weak var viewController: LoginViewControllerProtocol?
     
-    func signIn(username: String, password: String){
+    private let authService: AuthServiceProtocol
+    
+    init(authService:AuthServiceProtocol = AuthService.sharedInstance){
+        self.authService = authService
+    }
+    
+    func signIn(){
+        guard let vc = viewController as? UIViewController else{
+            return
+        }
         
+        authService.authenticate(viewController: vc) { [weak self](error) in
+            if nil == error {
+                self?.viewController?.loggedIn()
+            }
+        }
     }
     
 }

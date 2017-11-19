@@ -6,8 +6,13 @@
 //  Copyright © 2017 Michal Wojtysiak. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class LoginRouter {
-     weak var viewController: LoginViewController?
+    weak var viewController: LoginViewController?
+    func navigateToBoards(){
+        let boardsVC = BoardsViewController(configurator: BoardsConfigurator())
+        let nav = UINavigationController(rootViewController: boardsVC)
+        viewController?.present(nav, animated: true, completion: nil)
+    }
 }

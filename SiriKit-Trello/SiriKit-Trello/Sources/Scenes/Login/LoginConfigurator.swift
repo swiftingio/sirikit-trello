@@ -7,11 +7,11 @@
 //
 
 protocol LoginInteractorProtocol {
-    func signIn(username: String, password: String)
+    func signIn()
 }
 
 protocol LoginViewControllerProtocol: class {
-    //func displaySignInError(message: String)
+    func loggedIn()
 }
 
 final class LoginConfigurator: Configurator {
