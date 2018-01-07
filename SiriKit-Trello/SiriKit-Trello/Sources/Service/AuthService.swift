@@ -17,6 +17,7 @@ enum AuthError: Error {
 protocol AuthServiceProtocol {
     func authenticate(viewController: UIViewController, completion: @escaping (AuthError?) -> Swift.Void)
     var oAuthToken: String? { get }
+    var consumerKey: String { get }
 }
 
 class AuthService: AuthServiceProtocol {
@@ -31,6 +32,7 @@ class AuthService: AuthServiceProtocol {
     )
     
     private(set) var oAuthToken: String?
+    private(set) var consumerKey: String = ""
     private var oAuthTokenSecret: String?
     
     func authenticate(viewController: UIViewController, completion: @escaping (AuthError?) -> Swift.Void){

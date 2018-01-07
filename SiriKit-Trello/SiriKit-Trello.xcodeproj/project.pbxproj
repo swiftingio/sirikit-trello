@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		906E74FB1FB2598700C958D5 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906E74FA1FB2598700C958D5 /* OAuthSwift.framework */; };
-		906E74FC1FB2598700C958D5 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 906E74FA1FB2598700C958D5 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9030FF7E1FD89728000ABA83 /* ListsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030FF7A1FD883DD000ABA83 /* ListsConfigurator.swift */; };
+		9030FF7F1FD8972A000ABA83 /* ListsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030FF7B1FD883DD000ABA83 /* ListsInteractor.swift */; };
+		9030FF801FD8972D000ABA83 /* ListsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030FF7C1FD883DD000ABA83 /* ListsRouter.swift */; };
+		9030FF811FD8972F000ABA83 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030FF7D1FD883DD000ABA83 /* ListsViewController.swift */; };
+		9036032F1FDDD9BF008CE830 /* CardsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9036032B1FDDD9BF008CE830 /* CardsConfigurator.swift */; };
+		903603301FDDD9BF008CE830 /* CardsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9036032C1FDDD9BF008CE830 /* CardsInteractor.swift */; };
+		903603311FDDD9BF008CE830 /* CardsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9036032D1FDDD9BF008CE830 /* CardsRouter.swift */; };
+		903603321FDDD9BF008CE830 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9036032E1FDDD9BF008CE830 /* CardsViewController.swift */; };
+		90488BE11FDC52BF00C9FA47 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906E74FA1FB2598700C958D5 /* OAuthSwift.framework */; };
+		90488BE21FDC52BF00C9FA47 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 906E74FA1FB2598700C958D5 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		907591B41FC21B8C002E5F45 /* BoardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907591B31FC21A32002E5F45 /* BoardsViewController.swift */; };
 		907591B51FC21B90002E5F45 /* BoardsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907591B11FC21A32002E5F45 /* BoardsRouter.swift */; };
 		907591B61FC21B93002E5F45 /* BoardsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907591B01FC21A31002E5F45 /* BoardsConfigurator.swift */; };
@@ -26,13 +34,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		906E74FD1FB2598700C958D5 /* Embed Frameworks */ = {
+		90488BE31FDC52C000C9FA47 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				906E74FC1FB2598700C958D5 /* OAuthSwift.framework in Embed Frameworks */,
+				90488BE21FDC52BF00C9FA47 /* OAuthSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,6 +48,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9030FF7A1FD883DD000ABA83 /* ListsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsConfigurator.swift; sourceTree = "<group>"; };
+		9030FF7B1FD883DD000ABA83 /* ListsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsInteractor.swift; sourceTree = "<group>"; };
+		9030FF7C1FD883DD000ABA83 /* ListsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsRouter.swift; sourceTree = "<group>"; };
+		9030FF7D1FD883DD000ABA83 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
+		9036032B1FDDD9BF008CE830 /* CardsConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsConfigurator.swift; sourceTree = "<group>"; };
+		9036032C1FDDD9BF008CE830 /* CardsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsInteractor.swift; sourceTree = "<group>"; };
+		9036032D1FDDD9BF008CE830 /* CardsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsRouter.swift; sourceTree = "<group>"; };
+		9036032E1FDDD9BF008CE830 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		906E74FA1FB2598700C958D5 /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = Carthage/Build/iOS/OAuthSwift.framework; sourceTree = "<group>"; };
 		907591B01FC21A31002E5F45 /* BoardsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsConfigurator.swift; sourceTree = "<group>"; };
 		907591B11FC21A32002E5F45 /* BoardsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsRouter.swift; sourceTree = "<group>"; };
@@ -64,13 +80,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				906E74FB1FB2598700C958D5 /* OAuthSwift.framework in Frameworks */,
+				90488BE11FDC52BF00C9FA47 /* OAuthSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9030FF791FD883DD000ABA83 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				9030FF7A1FD883DD000ABA83 /* ListsConfigurator.swift */,
+				9030FF7B1FD883DD000ABA83 /* ListsInteractor.swift */,
+				9030FF7C1FD883DD000ABA83 /* ListsRouter.swift */,
+				9030FF7D1FD883DD000ABA83 /* ListsViewController.swift */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
+		9036032A1FDDD9BF008CE830 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				9036032B1FDDD9BF008CE830 /* CardsConfigurator.swift */,
+				9036032C1FDDD9BF008CE830 /* CardsInteractor.swift */,
+				9036032D1FDDD9BF008CE830 /* CardsRouter.swift */,
+				9036032E1FDDD9BF008CE830 /* CardsViewController.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
 		907591AF1FC21A02002E5F45 /* Boards */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +179,8 @@
 		90878C1B1FAF834400623AD5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9036032A1FDDD9BF008CE830 /* Cards */,
+				9030FF791FD883DD000ABA83 /* Lists */,
 				907591AF1FC21A02002E5F45 /* Boards */,
 				90878C1C1FAF834400623AD5 /* Login */,
 			);
@@ -176,7 +216,7 @@
 				90878BF21FAF7C8100623AD5 /* Sources */,
 				90878BF31FAF7C8100623AD5 /* Frameworks */,
 				90878BF41FAF7C8100623AD5 /* Resources */,
-				906E74FD1FB2598700C958D5 /* Embed Frameworks */,
+				90488BE31FDC52C000C9FA47 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,17 +279,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				903603311FDDD9BF008CE830 /* CardsRouter.swift in Sources */,
 				90878C261FAF83F300623AD5 /* LoginViewController.swift in Sources */,
 				907591B71FC21B95002E5F45 /* BoardsInteractor.swift in Sources */,
+				9036032F1FDDD9BF008CE830 /* CardsConfigurator.swift in Sources */,
+				903603321FDDD9BF008CE830 /* CardsViewController.swift in Sources */,
+				9030FF7F1FD8972A000ABA83 /* ListsInteractor.swift in Sources */,
+				903603301FDDD9BF008CE830 /* CardsInteractor.swift in Sources */,
 				907591B51FC21B90002E5F45 /* BoardsRouter.swift in Sources */,
 				907591B41FC21B8C002E5F45 /* BoardsViewController.swift in Sources */,
+				9030FF7E1FD89728000ABA83 /* ListsConfigurator.swift in Sources */,
 				907591B61FC21B93002E5F45 /* BoardsConfigurator.swift in Sources */,
 				907591BA1FC22492002E5F45 /* AuthService.swift in Sources */,
 				90878C291FAF852600623AD5 /* ConfiguratorProtocol.swift in Sources */,
 				90878C201FAF83B000623AD5 /* LoginInteractor.swift in Sources */,
 				90878C1E1FAF839B00623AD5 /* LoginConfigurator.swift in Sources */,
 				90878C181FAF7F3A00623AD5 /* AppDelegate.swift in Sources */,
+				9030FF801FD8972D000ABA83 /* ListsRouter.swift in Sources */,
 				90878C221FAF83BE00623AD5 /* LoginRouter.swift in Sources */,
+				9030FF811FD8972F000ABA83 /* ListsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

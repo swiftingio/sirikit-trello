@@ -1,5 +1,5 @@
 //
-//  BoardsViewController.swift
+//  ListsViewController.swift
 //  SiriKit-Trello
 //
 //  Created by Michal Wojtysiak on 05/11/2017.
@@ -8,26 +8,25 @@
 
 import UIKit
 
-final class BoardsViewController: UIViewController, Configurable {
+final class ListsViewController: UIViewController, Configurable {
 
-    var interactor: BoardsInteractorProtocol?
-    var router: BoardsRouter?
+    var interactor: ListsInteractorProtocol?
+    var router: ListsRouter?
     private let tableView = UITableView()
     private let cellIdentifier = "UITableViewCell"
-    private var boards: [Board] = []
+    private var lists:[List] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        self.title = "Boards"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
         
         setupConstraints()
-        interactor?.getBoards()
+        interactor?.getLists()
     }
     
     private func setupConstraints() {
@@ -43,32 +42,36 @@ final class BoardsViewController: UIViewController, Configurable {
     }
 }
 
-extension BoardsViewController: BoardsViewControllerProtocol {
-    func display(boards: [Board]) {
-        self.boards = boards
+extension ListsViewController: ListsViewControllerProtocol {
+    func display(lists: [List]) {
+        self.lists = lists
         tableView.reloadData()
     }
+    
+    func update(title: String) {
+        self.title = title
+    }
 
 }
 
-extension BoardsViewController: UITableViewDelegate {
+extension ListsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        router?.navigateToLists(board: boards[indexPath.row])
+        router?.navigateToCards(list: lists[indexPath.row])
     }
 }
 
-extension BoardsViewController: UITableViewDataSource {
+extension ListsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return boards.count
+        return lists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        cell.textLabel?.text = boards[indexPath.row].name
+        cell.textLabel?.text = lists[indexPath.row].name
         return cell
     }
 }

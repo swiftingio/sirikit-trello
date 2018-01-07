@@ -1,5 +1,5 @@
 //
-//  BoardsViewController.swift
+//  CardsViewController.swift
 //  SiriKit-Trello
 //
 //  Created by Michal Wojtysiak on 05/11/2017.
@@ -8,26 +8,25 @@
 
 import UIKit
 
-final class BoardsViewController: UIViewController, Configurable {
+final class CardsViewController: UIViewController, Configurable {
 
-    var interactor: BoardsInteractorProtocol?
-    var router: BoardsRouter?
+    var interactor: CardsInteractorProtocol?
+    var router: CardsRouter?
     private let tableView = UITableView()
     private let cellIdentifier = "UITableViewCell"
-    private var boards: [Board] = []
+    private var cards: [Card] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        self.title = "Boards"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
         
         setupConstraints()
-        interactor?.getBoards()
+        interactor?.getCards()
     }
     
     private func setupConstraints() {
@@ -43,32 +42,31 @@ final class BoardsViewController: UIViewController, Configurable {
     }
 }
 
-extension BoardsViewController: BoardsViewControllerProtocol {
-    func display(boards: [Board]) {
-        self.boards = boards
+extension CardsViewController: CardsViewControllerProtocol {
+    func display(cards: [Card]) {
+        self.cards = cards
         tableView.reloadData()
     }
-
 }
 
-extension BoardsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        router?.navigateToLists(board: boards[indexPath.row])
-    }
-}
+extension CardsViewController: UITableViewDelegate {}
 
-extension BoardsViewController: UITableViewDataSource {
+extension CardsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return boards.count
+        return cards.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        cell.textLabel?.text = boards[indexPath.row].name
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        cell.textLabel?.text = cards[indexPath.row].name
+        cell.detailTextLabel?.numberOfLines = 0
+        cell.detailTextLabel?.text = cards[indexPath.row].desc
         return cell
     }
+    
+    
 }

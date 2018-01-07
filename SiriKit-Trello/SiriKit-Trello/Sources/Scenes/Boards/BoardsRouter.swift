@@ -6,8 +6,14 @@
 //  Copyright © 2017 Michal Wojtysiak. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class BoardsRouter {
-     weak var viewController: BoardsViewController?
+    weak var viewController: BoardsViewController?
+    
+    func navigateToLists(board: Board){
+        let vc = ListsViewController(configurator: ListsConfigurator())
+        vc.interactor?.board = board
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
 }

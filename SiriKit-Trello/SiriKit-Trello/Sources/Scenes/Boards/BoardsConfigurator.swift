@@ -7,11 +7,11 @@
 //
 
 protocol BoardsInteractorProtocol {
-    
+    func getBoards()
 }
 
 protocol BoardsViewControllerProtocol: class {
-    
+    func display(boards: [Board])
 }
 
 final class BoardsConfigurator: Configurator {

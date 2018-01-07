@@ -1,5 +1,5 @@
 //
-//  BoardsInteractor.swift
+//  CardsInteractor.swift
 //  SiriKit-Trello
 //
 //  Created by Michal Wojtysiak on 05/11/2017.
@@ -8,14 +8,20 @@
 
 import Foundation
 
-
-struct Board: Codable {
+struct Card: Codable {
     var id: String
     var name: String
+    var desc: String?
 }
 
-final class BoardsInteractor: BoardsInteractorProtocol {
-    weak var viewController: BoardsViewControllerProtocol?
+final class CardsInteractor: CardsInteractorProtocol {
+    weak var viewController: CardsViewControllerProtocol?
+    
+    var list: List? {
+        didSet {
+            viewController?.title = list?.name
+        }
+    }
  
     private let authService: AuthServiceProtocol
     private let session: URLSession
@@ -24,13 +30,14 @@ final class BoardsInteractor: BoardsInteractorProtocol {
         self.session = session
     }
     
-    func getBoards() {
-        guard let token = authService.oAuthToken else {
+    func getCards() {
+        guard let token = authService.oAuthToken,
+        let list = list else {
             return
         }
         let key = authService.consumerKey
-        let urlString = "https://api.trello.com/1/members/me/boards?fields=name,id&key="+key+"&token="+token
-        
+        let urlString = "https://api.trello.com/1/lists/"+list.id+"/cards?key="+key+"&token="+token
+        print(urlString)
         guard let url = URL(string: urlString) else {
             return
         }
@@ -42,12 +49,13 @@ final class BoardsInteractor: BoardsInteractorProtocol {
             }
             
             guard let responseData = data else { return }
+            print(NSString(data: responseData, encoding: String.Encoding.utf8.rawValue))
             
             let decoder = JSONDecoder()
             do {
-                let boards = try decoder.decode([Board].self, from: responseData)
+                let Cards = try decoder.decode([Card].self, from: responseData)
                 DispatchQueue.main.async {
-                    self?.viewController?.display(boards: boards)
+                    self?.viewController?.display(cards: Cards)
                 }
             } catch {
                 print("error trying to convert data to JSON")
@@ -57,11 +65,11 @@ final class BoardsInteractor: BoardsInteractorProtocol {
         dataTask.resume()
         
         /*
-         https://api.trello.com/1/boards/560bf4298b3dda300c18d09c?fields=name,url&key={YOUR-API-KEY}&token={AN-OAUTH-TOKEN}
+         https://api.trello.com/1/Cards/560bf4298b3dda300c18d09c?fields=name,url&key={YOUR-API-KEY}&token={AN-OAUTH-TOKEN}
          
-         GET /1/members/me/boards - Get an array of the Boards of a user
-         GET /1/boards/[board_id]/cards - Get an array of Cards on a board
-         GET /1/boards/[board_id]/lists - Get an array of Lists on a board
+         GET /1/members/me/Cards - Get an array of the Cards of a user
+         GET /1/Cards/[board_id]/cards - Get an array of Cards on a board
+         GET /1/Cards/[board_id]/Cards - Get an array of Cards on a board
          */
         
     }
